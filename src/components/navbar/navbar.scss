@@ -1,0 +1,23 @@
+nav{
+
+    .nav_menu{
+        ul{
+            li{
+                .nav_link.active_nav{
+                    background-color: rgba(0, 128, 0, 0.295);
+                }
+            }
+        }
+    }
+    .nav_menu.show_menu{
+        
+    }
+
+
+    .nav_toggle{
+        height: 30px;
+        width: 30px;
+        background-color: #00000030;
+        cursor: pointer;
+    }
+}
