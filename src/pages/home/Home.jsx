@@ -1,15 +1,7 @@
-import React from 'react'
-
-const Home = () => {
-  return (
-    <section className="home section grid"></section>
-  )
-}
-
-export default Home
 import Profile from '../../assets/home.jpg'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from "react-icons/fa";
+import './home.scss'
 
 
 const Home = () => {
@@ -23,8 +15,7 @@ const Home = () => {
 
           <div className="home_data">
             <h1>
-              <span>I'm Steve Milner.</span>
-              Web Designer
+              <span>I'm Steve Milner.</span> Web Designer
             </h1>
             <p>
             As a new front-end developers at Strikingly we took an onboarding training program, through which there are two tasks and you have to implement ...

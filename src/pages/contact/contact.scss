@@ -1,0 +1,123 @@
+@import "../../styles/responsive.scss";
+
+.contact {
+  .contact_container {
+    grid-template-columns: 4fr 8fr;
+    @include mdmax{
+      grid-template-columns: 1fr;
+      row-gap: 48px;
+    }
+
+    .contact_data {
+      h3 {
+        font-size: var(--h3-font-size);
+        font-weight: var(--weight-600);
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: var(--small-font-size);
+        line-height: 1.6;
+      }
+      .contact_info {
+        .info_item {
+          display: flex;
+          align-items: center;
+          column-gap: 16px;
+
+          .info_icon {
+            color: var(--first-color);
+            font-size: var(--h2-font-size);
+          }
+          .info_title {
+            font-size: var(--small-font-size);
+          }
+          .info_desc {
+            font-family: var(--body-font);
+            font-size: var(--small-font-size);
+            font-weight: var(--weight-500);
+          }
+        }
+      }
+      .contact_socials {
+        display: flex;
+        column-gap: 16px;
+
+        .contact_social-link {
+          background-color: var(--container-color);
+          color: var(--title-color);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 44px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: var(--first-color);
+            color: var(--text-white);
+          }
+        }
+      }
+    }
+    .contact_form {
+      .form_input-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+
+        @include lg {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 24px;
+        }
+        @include xsm{
+          grid-template-columns: 1fr;
+        }
+      }
+      .form_input-div {
+        margin-bottom: 30px;
+
+        @include lg {
+            margin-bottom: 24px;
+          }
+
+        &:last-child {
+          @include lg {
+            grid-column: 1/-1;
+          }
+        }
+
+        .form_control {
+          border: 1px solid var(--container-color);
+          background-color: var(--container-color);
+          color: var(--title-color);
+          width: 100%;
+          padding: 12px 24px;
+          border-radius: 30px;
+          font-size: var(--small-font-size);
+          transition: all 0.3s ease;
+
+          &:focus {
+            border-color: var(--first-color);
+          }
+        }
+        .textarea {
+          resize: none;
+          height: 160px;
+        }
+      }
+
+      button {
+        .contact_button-icon {
+          line-height: 64px;
+          font-size: var(--h3-font-size);
+        }
+      }
+    }
+  }
+}
+
+.contact_info,
+.info_item,
+.contact_description {
+  margin-bottom: 20px;
+}

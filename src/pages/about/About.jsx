@@ -3,11 +3,14 @@ import { FaDownload } from "react-icons/fa";
 import CV from '../../assets/steve-Cv.pdf'
 import Stats from "../../components/stats/Stats";
 import Skills from "../../components/skills/Skills";
+import { resume } from "../../data";
+import ResumeItem from "../../components/resumeItem/ResumeItem";
+import './about.scss'
 
 
 const About = () => {
   return (
-    <main className="section container">
+    <main className="section container about_main">
 
       <section className="about">
 
@@ -17,7 +20,7 @@ const About = () => {
 
           <div className="about_info">
             <h3>Personal infos</h3>
-            <ul className="grid">
+            <ul className="info_list grid">
               <Info />
             </ul>
             <a href={CV} download={''} className="button">
@@ -45,6 +48,33 @@ const About = () => {
         </div>
 
       </section>
+
+      <div className="seperator"></div>
+
+      <section className="resume">
+
+        <h3>Experience & education</h3>
+
+        <div className="resume_container grid">
+          <div className="resume_data">
+            {
+              resume.filter(data => data.category === 'experience').map(data => (
+                <ResumeItem key={data.id} {...data} />
+              ))
+            }
+          </div>
+
+          <div className="resume_data">
+            {
+              resume.filter(data => data.category === 'education').map(data => (
+                <ResumeItem key={data.id} {...data} />
+              ))
+            }
+          </div>
+        </div>
+
+      </section>
+
     </main>
   )
 }

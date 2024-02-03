@@ -1,0 +1,156 @@
+@import '../../styles/responsive.scss';
+
+
+.portfolio{
+
+    .portfolio_container{
+        grid-template-columns: repeat(3, 1fr);
+
+        @include mdmax{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include xsm{
+            grid-template-columns: 1fr;
+        }
+
+        .portfolio_item{
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+
+            &:hover{
+                .portfolio_hover{
+                    opacity: 1;
+
+                    h3{
+                        transform: translateY(0);
+                    }
+                }
+            }
+
+            .portfolio_img{
+                height: 250px;
+                width: 100%;
+                object-fit: cover;
+                vertical-align: middle;
+            }
+
+            .portfolio_hover{
+                background-color: var(--first-color);
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center;
+                opacity: 0;
+                transition: all .5s ease;
+
+                h3{
+                    color: var(--text-white);
+                    font-size: var(--large-font-size);
+                    font-weight: var(--weight-500);
+                    transform: translateY(-20px);
+                    transition: all .5s ease;
+                }
+            }
+        }
+    }
+}
+
+
+
+.portfolio_modal{
+    position: fixed;
+    inset: 0;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    z-index: 500;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+
+    .portfolio_modal-content{
+        background-color: var(--container-color);
+        max-width: 650px;
+        width: 100%;
+        padding: 32px;
+        border-radius: 10px;
+        position: relative;
+
+        @include lg{
+            max-width: 600px;
+        }
+        @include sm{
+            padding: 25px 20px;
+            max-width: 470px;
+        }
+
+        .modal_close{
+            width: 50px;
+            height: 50px;
+            top: -3.5%;
+            right: -8.5%;
+            position: absolute;
+            filter: invert(.8);
+
+            @include lg{
+                width: 40px;
+                height: 40px;
+              }
+              @include sm{
+                top: 3%;
+                right: 15px;
+            }
+        }
+
+        h3{
+            text-align: center;
+            color: var(--first-color);
+            font-size: var(--h2-font-size);
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        ul{
+           grid-template-columns: repeat(2, 1fr);
+           row-gap: 10px;
+           margin-bottom: 24px;
+
+           @include xsm{
+            grid-template-columns: 1fr;
+          }
+           
+           li{
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+
+            .item_icon{
+                display: flex;
+            }
+            div{
+                .item_title, .item_details{
+                    color: var(--title-color);
+                    font-size: var(--small-font-size);
+                }
+                .item_details{
+                    font-weight: var(--weight-600);
+                }
+            }
+
+           }
+        }
+
+        .modal_img{
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+
+            @include sm{
+                height: 279px;
+            }
+            @include xsm{
+                height: 250px;
+            }
+        }
+    }
+}
